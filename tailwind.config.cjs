@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['./src//*.{html,js,svelte,ts}'],
   theme: {
     extend: {
       colors: {
@@ -10,11 +10,11 @@ module.exports = {
         'backgroundSecondary': '#abd1c6',
         'headline': '#fffffd',
         'headlineSecondary': '#001e1d',
-        
+
         'buttonBackground': '#001e1d',
         'buttonText': '#001e1d',
         'accent': '#e16162',
-        
+
         'cardHeading': '#004643',
         'cardText': '#001e1d',
 
