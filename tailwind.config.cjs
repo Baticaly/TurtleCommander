@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src//*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
       colors: {
@@ -11,18 +11,23 @@ module.exports = {
         'headline': '#fffffd',
         'headlineSecondary': '#001e1d',
 
-        'buttonBackground': '#001e1d',
-        'buttonText': '#001e1d',
+        'buttonBackground': '#f8bb60',
+        'buttonText': '#fffffd',
         'accent': '#e16162',
 
         'cardHeading': '#004643',
         'cardText': '#001e1d',
 
-        'connectPrimary': '#004643',
-        'connectBackground': '#001e1d',
+        'connectPrimary': '#fffffd',
+        'connectBackground': '#f8bb60',
 
         'usercardPrimary': '#fffffd',
         'usercardBackground': '#001e1d',
+
+        'loginCardBackground': '#e8e4e6',
+        'loginCardBorder': '#001e1d',
+        'loginCardText': '#001e1d',
+        'loginCardTextSecondary': '#e8e4e6',
       },
     },
   },

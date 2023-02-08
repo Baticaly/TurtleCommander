@@ -86,12 +86,8 @@
 		<input id="email" type="text" value={session.user.email} disabled />
 	</div>
 	<div>
-		<label for="username">Name</label>
+		<label for="username">Username</label>
 		<input id="username" type="text" bind:value={username} />
-	</div>
-	<div>
-		<label for="website">Website</label>
-		<input id="website" type="website" bind:value={website} />
 	</div>
 
 	<div>
