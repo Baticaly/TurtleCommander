@@ -21,7 +21,7 @@
 </script>
 
 <!-- Container -->
-<div class="m-0 p-10 text-center w-full h-full flex">
+<div class="m-0 p-10 w-full h-full flex">
   <!-- Login Button -->
   <div class="absolute top-10 right-10">
     <form
@@ -64,5 +64,19 @@
       <h2 class="text-xl font-bold -mb-2">ComputerCraft</h2>
       <h1 class="text-3xl font-extrabold">TurtleCommander</h1>
     </div>
+  </div>
+
+  <!-- Content -->
+  <div class="flex flex-row m-28 h-48">
+    <div class="flex flex-col">
+      <h2>Baslik</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex temporibus
+        rem quis tempore alias autem repellat quaerat dicta ullam! Voluptates,
+        possimus atque aspernatur nesciunt quasi ducimus autem accusantium
+        beatae dolorem.
+      </p>
+    </div>
+    <img src="src/assets/logo2.svg" alt="" />
   </div>
 </div>
