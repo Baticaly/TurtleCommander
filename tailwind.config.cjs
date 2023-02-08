@@ -27,7 +27,6 @@ module.exports = {
         'loginCardBackground': '#e8e4e6',
         'loginCardBorder': '#001e1d',
         'loginCardText': '#001e1d',
-        'loginCardTextSecondary': '#e8e4e6',
       },
     },
   },

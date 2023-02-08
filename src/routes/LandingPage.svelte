@@ -1,6 +1,6 @@
 <script>
 	import { supabase } from '$lib/supabaseClient';
-	let closeButtonClicked = false;
+	let loginButtonHover = false;
 	let loading = false;
 	let email;
 
@@ -20,35 +20,38 @@
 	};
 </script>
 
-<div class="m-0 p-10 text-center w-full h-full flex justify-around align-center">
-	<div>
-		<button class="absolute top-10 right-10 bg-buttonBackground text-xl rounded-full px-8 py-2"
-			>Login
-		</button>
-
-		<div
-			class="bg-loginCardBackground border-4 drop-shadow-lg border-loginCardBorder rounded-3xl p-8"
+<div class="m-0 p-10 text-center w-full h-full flex justify-center align-center">
+	<div class="absolute top-10 right-10">
+		<form
+			on:submit|preventDefault={handleLogin}
+			on:mouseenter={() => {
+				loginButtonHover = true;
+			}}
+			on:mouseleave={() => {
+				loginButtonHover = false;
+			}}
 		>
-			<form on:submit|preventDefault={handleLogin}>
-				<div class="flex flex-col gap-4 items-start">
+			<div class="flex gap-4 items-start">
+				{#if loginButtonHover}
 					<div>
 						<input
-							class="py-2 pl-4 rounded-xl text-loginCardTextSecondary placeholder-loginCardTextSecondary"
+							class="bg-loginCardBackground py-2 pl-4 rounded-xl text-loginCardText placeholder-loginCardText"
 							type="email"
-							placeholder="Your email"
+							placeholder="Email"
 							bind:value={email}
 						/>
 					</div>
-					<div class="w-full">
-						<input
-							type="submit"
-							class="bg-connectBackground text-connectPrimary py-2 pl-2 w-full rounded-xl cursor-pointer"
-							value={loading ? 'Loading' : 'Login'}
-							disabled={loading}
-						/>
-					</div>
+				{/if}
+
+				<div class="w-full">
+					<input
+						type="submit"
+						class="bg-buttonBackground text-xl rounded-full px-8 py-2 cursor-pointer hover:bg-[#f2cb99]"
+						value={loading ? 'Loading' : 'Login'}
+						disabled={loading}
+					/>
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
 </div>
