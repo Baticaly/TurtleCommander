@@ -13,7 +13,10 @@ module.exports = {
 
         'buttonBackground': '#f8bb60',
         'buttonBackgroundHover': '#f2cb99',
+        'buttonBackgroundSecondary':'#abd1c6',
+        'buttonBackgroundSecondaryHover':'#f8bb60',
         'buttonText': '#fffffd',
+        'buttonTextSecondary': '#004643',
         'accent': '#e16162',
 
         'cardHeading': '#004643',
