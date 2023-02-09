@@ -24,3 +24,17 @@
     padding: 2rem;
     text-align: center;
 }
+
+::-webkit-scrollbar {
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #fffffd;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: #abd1c6;
+    border-radius: 2rem;
+}
