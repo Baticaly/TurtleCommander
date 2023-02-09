@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import { supabase } from "$lib/supabaseClient";
+	import AddTurtle from "$lib/AddTurtle.svelte";
 
 	export let session;
 
@@ -175,46 +176,7 @@
 				>
 					Turtle #1
 				</div>
-				<div
-					class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-				>
-					Turtle #1
-				</div>
-				<div
-					class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-				>
-					Turtle #1
-				</div>
-				<div
-					class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-				>
-					Turtle #1
-				</div>
-				<div
-					class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-				>
-					Turtle #1
-				</div>
-				<div
-					class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-				>
-					Turtle #1
-				</div>
-				<div
-					class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-				>
-					Turtle #1
-				</div>
-				<div
-					class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-				>
-					Turtle #1
-				</div>
-				<div
-					class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-				>
-					Turtle #1
-				</div>
+				<AddTurtle />
 			</div>
 			<div
 				class="flex flex-row top-3/4 py-4 items-center bg-loginCardBorder rounded-b-3xl"
@@ -224,7 +186,7 @@
 				<div class="ml-6 h-8 w-8 rounded-full bg-headline">
 					<img src="" alt="" />
 				</div>
-				<div class="text-headline pl-4 font-bold text-xl">User</div>
+				<div class="text-headline pl-4 font-bold text-xl">{username}</div>
 			</div>
 		</div>
 
