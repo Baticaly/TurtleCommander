@@ -1,10 +1,8 @@
 <script>
-	import { goto, invalidate } from '$app/navigation';
 	import { supabase } from '$lib/supabaseClient';
 
-	export let username;
+	export let user;
 	export let turtleList;
-	$: turtleList = turtleList;
 
 	async function addTurtle() {
 		let turtleName;
@@ -18,7 +16,7 @@
 			turtlename: turtleName,
 			spawned: 'false',
 			location: { x: 0, y: 0, z: 0 },
-			owner: username
+			owner: user.id
 		};
 
 		const { error } = await supabase.from('turtles').insert(newTurtle);

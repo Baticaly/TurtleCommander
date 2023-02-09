@@ -4,6 +4,7 @@
 	import AddTurtle from '$lib/AddTurtle.svelte';
 
 	export let session;
+	const { user } = session;
 
 	export let data;
 	let { turtleList } = data;
@@ -169,7 +170,7 @@
 			</div>
 			<div class="bg-usercardBackground h-0.5 w-11/12 rounded-full mx-auto mb-4" />
 			<div class="h-[80%] overflow-auto">
-				<AddTurtle {username} {turtleList} />
+				<AddTurtle {user} {turtleList} />
 			</div>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div
