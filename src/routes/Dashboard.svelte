@@ -5,6 +5,10 @@
 
 	export let session;
 
+	export let data;
+	let { turtleList } = data;
+	$: ({ turtleList } = data);
+
 	let loading = false;
 	let username = null;
 	let website = null;
@@ -165,7 +169,7 @@
 			</div>
 			<div class="bg-usercardBackground h-0.5 w-11/12 rounded-full mx-auto mb-4" />
 			<div class="h-[80%] overflow-auto">
-				<AddTurtle />
+				<AddTurtle {username} {turtleList} />
 			</div>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div

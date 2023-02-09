@@ -1,21 +1,40 @@
 <script>
-	// Supabase
-	let turtleList = [{ id: 'Turtle #1' }];
+	import { goto, invalidate } from '$app/navigation';
+	import { supabase } from '$lib/supabaseClient';
 
-	function addTurtle() {
-		let turtleID = 'Turtle #' + JSON.stringify(turtleList.length + 1);
-		turtleList = [...turtleList, { id: turtleID }];
-		console.log(turtleList);
+	export let username;
+	export let turtleList;
+	$: turtleList = turtleList;
+
+	async function addTurtle() {
+		let turtleName;
+		if (turtleList !== undefined) {
+			turtleName = 'Turtle #' + JSON.stringify(turtleList.length + 1);
+		} else {
+			turtleName = 'Turtle #0';
+		}
+
+		let newTurtle = {
+			turtlename: turtleName,
+			spawned: 'false',
+			location: { x: 0, y: 0, z: 0 },
+			owner: username
+		};
+
+		const { error } = await supabase.from('turtles').insert(newTurtle);
+		turtleList = [...turtleList, newTurtle];
 	}
 </script>
 
-{#each turtleList as turtle}
-	<div
-		class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
-	>
-		{turtle.id}
-	</div>
-{/each}
+{#if turtleList !== undefined}
+	{#each turtleList as turtle}
+		<div
+			class="text-2xl text-buttonTextSecondary bg-buttonBackgroundSecondary py-2.5 w-11/12 m-auto mb-2 text-center rounded-2xl hover:bg-buttonBackgroundSecondaryHover hover:cursor-pointer"
+		>
+			{turtle.turtlename}
+		</div>
+	{/each}
+{/if}
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
