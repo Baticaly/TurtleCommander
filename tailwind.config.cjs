@@ -12,6 +12,7 @@ module.exports = {
         'headlineSecondary': '#001e1d',
 
         'buttonBackground': '#f8bb60',
+        'buttonBackgroundHover': '#f2cb99',
         'buttonText': '#fffffd',
         'accent': '#e16162',
 
