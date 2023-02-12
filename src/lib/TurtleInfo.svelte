@@ -1,36 +1,35 @@
 <script>
-	import { invalidateAll } from "$app/navigation";
-	import { supabase } from "$lib/supabaseClient";
-	import { currentTurtle } from "../store";
+	import { goto, invalidateAll } from '$app/navigation';
+	import { supabase } from '$lib/supabaseClient';
+	import { currentTurtle } from '../store';
 
 	export let username;
 	$: selectedTurtle = $currentTurtle;
 
 	async function saveTurtle() {
-		let setTurtlename = document.getElementById("turtleName").value;
-		if (setTurtlename !== "") {
+		let setTurtlename = document.getElementById('turtleName').value;
+		if (setTurtlename !== '') {
 			const { error } = await supabase
-				.from("turtles")
+				.from('turtles')
 				.update({ turtlename: setTurtlename })
-				.eq("id", selectedTurtle.id);
+				.eq('id', selectedTurtle.id);
 			invalidateAll();
 		} else {
-			alert("Name cannot be empty!");
+			alert('Name cannot be empty!');
 		}
 	}
 
 	async function deleteTurtle() {
-		const { error } = await supabase
-			.from("turtles")
-			.delete()
-			.eq("id", selectedTurtle.id);
+		const { error } = await supabase.from('turtles').delete().eq('id', selectedTurtle.id);
 		currentTurtle.update(() => {
 			return {};
 		});
 		invalidateAll();
 	}
 
-	function connectToTurtle() {}
+	function connectToTurtle() {
+		goto(`/console/?turtleID=${selectedTurtle.id}`);
+	}
 </script>
 
 {#if selectedTurtle.turtlename !== undefined}
@@ -42,16 +41,12 @@
 				<div class="pr-7 text-3xl font-semibold">#{$currentTurtle.id}</div>
 			</div>
 
-			<div
-				class="bg-usercardBackground h-0.5 w-[95%] rounded-full mx-auto mb-8"
-			/>
+			<div class="bg-usercardBackground h-0.5 w-[95%] rounded-full mx-auto mb-8" />
 		</div>
 
 		<!-- Info Cards -->
 		<div class="flex flex-col text-2xl h-3/4 overflow-auto mb-3">
-			<div
-				class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between"
-			>
+			<div class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between">
 				<label for="turtleName">Turtle name:</label>
 				<input
 					class="bg-slate-200 w-3/5 rounded-xl p-3"
@@ -60,9 +55,7 @@
 					value={$currentTurtle.turtlename}
 				/>
 			</div>
-			<div
-				class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between"
-			>
+			<div class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between">
 				<label for="owner">Owner:</label>
 				<input
 					class="bg-slate-200 w-3/5 rounded-xl p-3 text-slate-500"
@@ -72,9 +65,7 @@
 					value={username}
 				/>
 			</div>
-			<div
-				class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between"
-			>
+			<div class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between">
 				<label for="spawnedAt">Fuel:</label>
 				<input
 					class="bg-slate-200 w-3/5 rounded-xl p-3 text-slate-500"
@@ -84,9 +75,7 @@
 					value={$currentTurtle.fuel ?? 0}
 				/>
 			</div>
-			<div
-				class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between"
-			>
+			<div class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between">
 				<label for="spawnedAt">Spawned</label>
 				<input
 					class="bg-slate-200 w-3/5 rounded-xl p-3 text-slate-500"
@@ -96,9 +85,7 @@
 					value={$currentTurtle.spawned}
 				/>
 			</div>
-			<div
-				class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between"
-			>
+			<div class="flex flex-row w-[80%] mx-auto mb-3 items-center justify-between">
 				<label for="spawnedAt">Location:</label>
 				<input
 					class="bg-slate-200 w-3/5 rounded-xl p-3 text-slate-500"
@@ -111,9 +98,7 @@
 		</div>
 
 		<!-- Buttons -->
-		<div
-			class="flex flex-row justify-between w-[80%] mx-auto mb-6 text-lg font-semibold"
-		>
+		<div class="flex flex-row justify-between w-[80%] mx-auto mb-6 text-lg font-semibold">
 			<div>
 				<button
 					class="flex items-center justify-center bg-accent text-connectPrimary px-8 py-2 rounded-full"

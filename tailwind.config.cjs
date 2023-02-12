@@ -31,6 +31,11 @@ module.exports = {
         'loginCardBackground': '#e8e4e6',
         'loginCardBorder': '#001e1d',
         'loginCardText': '#001e1d',
+
+        'consoleBackground': '#fffffd',
+        'consoleBackgroundSecondary': '#abd1c6',
+        'consoleText': '#004643',
+        'consoleButton': '#001e1d',
       },
     },
   },
