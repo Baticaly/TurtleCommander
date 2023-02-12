@@ -1,8 +1,8 @@
 <script>
-	import { onMount } from 'svelte';
-	import { supabase } from '$lib/supabaseClient';
-	import TurtleInfo from '../lib/TurtleInfo.svelte';
-	import TurtleList from '../lib/TurtleList.svelte';
+	import { onMount } from "svelte";
+	import { supabase } from "$lib/supabaseClient";
+	import TurtleInfo from "../lib/TurtleInfo.svelte";
+	import TurtleList from "../lib/TurtleList.svelte";
 
 	export let session;
 	const { user } = session;
@@ -22,9 +22,9 @@
 			const { user } = session;
 
 			const { data, error, status } = await supabase
-				.from('profiles')
+				.from("profiles")
 				.select(`username, website, avatar_url`)
-				.eq('id', user.id)
+				.eq("id", user.id)
 				.single();
 
 			if (data) {
@@ -53,10 +53,10 @@
 				username,
 				website,
 				avatar_url: avatarUrl,
-				updated_at: new Date()
+				updated_at: new Date(),
 			};
 
-			let { error } = await supabase.from('profiles').upsert(updates);
+			let { error } = await supabase.from("profiles").upsert(updates);
 
 			if (error) throw error;
 		} catch (error) {
@@ -83,21 +83,21 @@
 	}
 
 	function toUserInfo() {
-		var userInfo = document.getElementById('userInfo');
-		var dashboard = document.getElementById('dashboard');
-		userInfo.classList.remove('hidden');
-		dashboard.classList.remove('flex');
-		dashboard.classList.add('hidden');
-		userInfo.classList.add('flex');
+		var userInfo = document.getElementById("userInfo");
+		var dashboard = document.getElementById("dashboard");
+		userInfo.classList.remove("hidden");
+		dashboard.classList.remove("flex");
+		dashboard.classList.add("hidden");
+		userInfo.classList.add("flex");
 	}
 
 	function toDashboard() {
-		var userInfo = document.getElementById('userInfo');
-		var dashboard = document.getElementById('dashboard');
-		userInfo.classList.add('hidden');
-		dashboard.classList.add('flex');
-		dashboard.classList.remove('hidden');
-		userInfo.classList.remove('flex');
+		var userInfo = document.getElementById("userInfo");
+		var dashboard = document.getElementById("dashboard");
+		userInfo.classList.add("hidden");
+		dashboard.classList.add("flex");
+		dashboard.classList.remove("hidden");
+		userInfo.classList.remove("flex");
 	}
 </script>
 
@@ -113,7 +113,7 @@
 		<div>
 			<label for="email">Email</label>
 			<input
-				class="bg-usercardBackground w-full rounded-2xl border-2 border-loginCardBorder p-4 text-headline"
+				class="bg-usercardBackground w-full rounded-2xl border-2 border-loginCardBorder p-4 text-neutral-400"
 				id="email"
 				type="text"
 				value={session.user.email}
@@ -134,7 +134,7 @@
 			<input
 				type="submit"
 				class="bg-connectBackground w-full rounded-2xl border-2 border-loginCardBorder p-4 text-headline cursor-pointer hover:bg-buttonBackgroundHover"
-				value={loading ? 'Loading...' : 'Update'}
+				value={loading ? "Loading..." : "Update"}
 				disabled={loading}
 			/>
 		</div>
@@ -161,11 +161,17 @@
 		<div class="flex flex-col basis-[23%] bg-headline rounded-3xl">
 			<div class="flex flex-row items-center justify-center pt-5 pb-4">
 				<div class="basis-1/6">
-					<img src="src/assets/logo2.svg" alt="Logo2" class="transform -scale-x-100" />
+					<img
+						src="src/assets/logo2.svg"
+						alt="Logo2"
+						class="transform -scale-x-100"
+					/>
 				</div>
 				<div class="font-extrabold text-2xl pl-3">TurtleCommander</div>
 			</div>
-			<div class="bg-usercardBackground h-0.5 w-11/12 rounded-full mx-auto mb-4" />
+			<div
+				class="bg-usercardBackground h-0.5 w-11/12 rounded-full mx-auto mb-4"
+			/>
 			<div class="h-[80%] overflow-auto">
 				<TurtleList {user} />
 			</div>

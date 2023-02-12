@@ -7,7 +7,7 @@ export const load = async (event) => {
 
   if (session) {
     const { user } = session;
-    const { data } = await supabase.from('turtles').select().eq('owner', user.id);
+    const { data } = await supabase.from('turtles').select().eq('owner', user.id).order('id', { ascending: true });
     turtleList.update((currentValue) => {
       return data
     })
