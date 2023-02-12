@@ -19,7 +19,25 @@
 			turtlename: turtleName,
 			spawned: 'false',
 			location: { x: 0, y: 0, z: 0 },
-			owner: user.id
+			owner: user.id,
+			inventory: [
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false },
+				{ item: '', amount: 0, equipped: false }
+			]
 		};
 
 		const { error } = await supabase.from('turtles').insert(newTurtle);
