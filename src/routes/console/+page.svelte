@@ -1,6 +1,6 @@
 <script>
-	import { page } from '$app/stores';
-	import Console from './Console.svelte';
+	import { page } from "$app/stores";
+	import Console from "./Console.svelte";
 </script>
 
 {#if $page.data.authState.status}
