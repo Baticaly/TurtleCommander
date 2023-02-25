@@ -1,4 +1,4 @@
 import { createClient } from '@supabase/auth-helpers-sveltekit'
-import { VITE_PUBLIC_SUPABASE_URL, VITE_PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public'
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from '$lib/Env';
 
-export const supabase = createClient(VITE_PUBLIC_SUPABASE_URL, VITE_PUBLIC_SUPABASE_ANON_KEY)
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
