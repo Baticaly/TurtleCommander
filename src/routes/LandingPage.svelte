@@ -1,6 +1,5 @@
 <script>
 	import { supabase } from '$lib/supabaseClient';
-	let loginButtonHover = false;
 	let loading = false;
 	let email;
 
@@ -23,27 +22,17 @@
 <!-- Container -->
 <div class="m-0 px-14 py-10 w-full h-screen overflow-hidden">
 	<!-- Login Button -->
-	<div class="absolute top-10 right-10">
-		<form
-			on:submit|preventDefault={handleLogin}
-			on:mouseenter={() => {
-				loginButtonHover = true;
-			}}
-			on:mouseleave={() => {
-				loginButtonHover = false;
-			}}
-		>
+	<div class="absolute top-10 right-10 group">
+		<form on:submit|preventDefault={handleLogin}>
 			<div class="flex gap-4 items-start">
-				{#if loginButtonHover}
-					<div>
-						<input
-							class="bg-loginCardBackground py-2 pl-4 rounded-xl text-loginCardText placeholder-loginCardText"
-							type="email"
-							placeholder="Email"
-							bind:value={email}
-						/>
-					</div>
-				{/if}
+				<div>
+					<input
+						class="hidden bg-loginCardBackground py-2 pl-4 rounded-xl text-loginCardText placeholder-loginCardText group-hover:block"
+						type="email"
+						placeholder="Email"
+						bind:value={email}
+					/>
+				</div>
 
 				<div class="w-full">
 					<input
