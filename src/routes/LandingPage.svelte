@@ -1,5 +1,5 @@
 <script>
-	import { supabase } from '$lib/supabaseClient';
+	import { supabase } from "$lib/supabaseClient";
 	let loading = false;
 	let email;
 
@@ -8,7 +8,7 @@
 			loading = true;
 			const { error } = await supabase.auth.signInWithOtp({ email });
 			if (error) throw error;
-			alert('Check your email for the login link!');
+			alert("Check your email for the login link!");
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);
@@ -27,7 +27,7 @@
 			<div class="flex gap-4 items-start">
 				<div>
 					<input
-						class="hidden bg-loginCardBackground py-2 pl-4 rounded-xl text-loginCardText placeholder-loginCardText group-hover:block"
+						class="bg-loginCardBackground py-2.5 pl-4 rounded-xl text-loginCardText placeholder-loginCardText transition-all duration-300 opacity-0 translate-x-5 group-hover:opacity-100 group-hover:translate-x-0"
 						type="email"
 						placeholder="Email"
 						bind:value={email}
@@ -38,7 +38,7 @@
 					<input
 						type="submit"
 						class="bg-buttonBackground text-xl rounded-full px-8 py-2 cursor-pointer hover:bg-buttonBackgroundHover"
-						value={loading ? 'Loading' : 'Login'}
+						value={loading ? "Loading" : "Login"}
 						disabled={loading}
 					/>
 				</div>
@@ -60,8 +60,9 @@
 		<div class="flex flex-col justify-center basis-6/12">
 			<h2 class="text-4xl font-bold">Spawn your turtle and get started!</h2>
 			<p class="mt-4 text-xl">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis euismod dui sit
-				amet rhoncus. In laoreet quis nisi maximus tempor.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+				facilisis euismod dui sit amet rhoncus. In laoreet quis nisi maximus
+				tempor.
 			</p>
 			<!-- Button -->
 			<div
